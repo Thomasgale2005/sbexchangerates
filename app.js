@@ -27,7 +27,7 @@ function writeJson(file, data)  {
 }
 let lastBazaarDownload = 1000;
 //reading config
-let messageCooldownList = {};sxs
+let messageCooldownList = {};
 let configJsonString = fs.readFileSync("config.json");
 const config = JSON.parse(configJsonString);
 const apiKey = process.env.API_KEY;
@@ -44,15 +44,22 @@ setInterval(() => {
 client.login(discordBotToken);
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}`);
+    client.user.setPresence({
+        status: "online", 
+        game: {
+            name: "sbr$help",  // The message shown
+            type: "PLAYING" // PLAYING, WATCHING, LISTENING, STREAMING,
+        }
+    });
 })
 console.log("2");
 client.on('message', message => {
     if(message.channel.id in messageCooldownList) {
         if(messageCooldownList[message.channel.id]+commandCooldown < time())    {
-            if(message.content.slice(0,4) == "sbr$") {
+            if((message.content.slice(0,4)).toUpperCase() == "SBR$") {
                 let content = message.content.slice(4).split(' ');
                 // commands
-                if (content[0] == 'rate')   {
+                if ((content[0]).toUpperCase() == 'RATE')   {
                     if (lastBazaarDownload+bazaarDownloadCooldown <= time()) {
                         fetch("https://api.hypixel.net/skyblock/bazaar?key="+apiKey)
                             .then(data => data.json())
@@ -75,7 +82,7 @@ client.on('message', message => {
                         messageCooldownList[channelId] = time();
                     }
                 }
-                if (content[0] == 'help')   {
+                if ((content[0]).toUpperCase() == 'HELP')   {
                     let discordResponse = ['**Commands:**', '**sbr$rate** - Calculates current coin price using the booster cookie price on bazaar', '*SbExchangeRates#1931 is owned by ThomasG#4988*'];
                     message.reply(discordResponse);
                     lastBazaarDownload = time();
@@ -87,10 +94,10 @@ client.on('message', message => {
             // On cooldown
         }
     }   else    {
-            if(message.content.slice(0,4) == "sbr$") {
+            if((message.content.slice(0,4)).toUpperCase() == "SBR$") {
                 let content = message.content.slice(4).split(' ');
                 // commands
-                if (content[0] == 'rate')   {
+                if ((content[0]).toUpperCase() == 'RATE')   {
                     if (lastBazaarDownload+bazaarDownloadCooldown <= time()) {
                         fetch("https://api.hypixel.net/skyblock/bazaar?key="+apiKey)
                             .then(data => data.json())
@@ -113,7 +120,7 @@ client.on('message', message => {
                         messageCooldownList[channelId] = time();
                     }
                 }
-                if (content[0] == 'help')   {
+                if ((content[0]).toUpperCase() == 'HELP')   {
                     let discordResponse = ['**Commands:**', '**sbr$rate** - Calculates current coin price using the booster cookie price on bazaar', '*SbExchangeRates#1931 is owned by ThomasG#4988*'];
                     message.reply(discordResponse);
                     lastBazaarDownload = time();

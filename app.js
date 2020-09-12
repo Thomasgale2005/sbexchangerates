@@ -28,7 +28,7 @@ function writeJson(file, data)  {
 let lastBazaarDownload = 1000;
 //reading config
 let messageCooldownList = {};
-let configJsonString = fs.readFileSync("config.json");
+let configJsonString = fs.readFileSync("./config.json");
 const config = JSON.parse(configJsonString);
 const apiKey = process.env.API_KEY;
 const discordBotToken = process.env.BOT_TOKEN;

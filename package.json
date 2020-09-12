@@ -1,0 +1,19 @@
+{
+  "name": "sbexchangerates",
+  "version": "1.0.0",
+  "description": "Discord bot made for Hypixel Skyblock, calculates USD to SBcoin rate.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Thomasgale2005/sbexchangerates.git"
+  },
+  "author": "Thomas Gale",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Thomasgale2005/sbexchangerates/issues"
+  },
+  "homepage": "https://github.com/Thomasgale2005/sbexchangerates#readme"
+}

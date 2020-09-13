@@ -1,6 +1,6 @@
 {
   "name": "sbexchangerates",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Discord bot made for Hypixel Skyblock, calculates USD to SBcoin rate.",
   "main": "app.js",
   "scripts": {

@@ -162,7 +162,7 @@ client.on('message', message => {
                                 })
                         }
                     }   else   {
-                        message.reply("Command nor recognised try ``sbr$help``")
+                        message.reply("Command not recognised try ``sbr$help``")
                     }
                     let channelId = message.channel.id;
                     messageCooldownList[channelId] = time();
@@ -281,7 +281,7 @@ client.on('message', message => {
                                 })
                         }
                     }   else   {
-                        message.reply("Command nor recognised try ``sbr$help``")
+                        message.reply("Command not recognised try ``sbr$help``")
                     }
                     let channelId = message.channel.id;
                     messageCooldownList[channelId] = time();

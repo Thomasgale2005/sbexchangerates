@@ -166,8 +166,9 @@ client.on('message', message => {
                     }
                     let channelId = message.channel.id;
                     messageCooldownList[channelId] = time();
-                }   catch  {
-                    message.channel.send("Error, if this persists contact ``ThomasG#4988`` with code: ``" + 3 + "``");s
+                }   catch(err)  {
+                    message.channel.send("Error, if this persists contact ``ThomasG#4988`` with code: ``" + 3 + "``");
+                    console.log(err)
                 }
             }
         }   else{
@@ -266,8 +267,9 @@ client.on('message', message => {
                                                             snowflakeScore += 0;
                                                         }
                                                         message.reply("**" + username + "**'s Snowflake Score is **" + (Math.floor(snowflakeScore/110*100)) + "%**")
-                                                    }   catch   {
+                                                    }   catch(err)   {
                                                         message.channel.send("Error, if this persists contact ``ThomasG#4988`` with code: ``" + 1 + "``");
+                                                        console.log(err)
                                                     }
                                                 }
                                             })
